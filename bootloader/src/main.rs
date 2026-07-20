@@ -4,13 +4,12 @@
 use core::time::Duration;
 use log::info;
 use uefi::boot::{self, SearchType};
-use uefi::helpers::init;
 use uefi::runtime::{self};
 use uefi::prelude::*;
 use uefi::proto::device_path::text::{
     AllowShortcuts, DevicePathToText, DisplayOnly, 
 };
-use uefi::proto::loaded_image::{self, LoadedImage};
+use uefi::proto::loaded_image::{LoadedImage};
 use uefi::{Identify, Result};
 
 fn print_image_path() -> Result {
