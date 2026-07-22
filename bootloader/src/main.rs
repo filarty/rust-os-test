@@ -8,8 +8,9 @@ use log::info;
 use uefi::boot::{self, SearchType};
 use uefi::proto::media::file::{File, FileAttribute};
 use uefi::proto::media::file::{FileMode, FileInfo};
+use uefi::proto::console::gop::{GraphicsOutput, ModeInfo};
 use uefi::runtime::{self};
-use uefi::cstr16;
+use uefi::{cstr16, proto};
 use uefi::prelude::*;
 use uefi::proto::device_path::text::{
     AllowShortcuts, DevicePathToText, DisplayOnly, 
@@ -17,7 +18,6 @@ use uefi::proto::device_path::text::{
 use uefi::proto::loaded_image::{LoadedImage};
 use uefi::{Identify, Result};
 
-use xmas_elf::ElfFile;
 use xmas_elf::program::Type;
 
 fn print_image_path() -> Result {
@@ -147,6 +147,12 @@ fn jmp_in_kernel(addr_ptr: *const ()) {
     };
     kernel_main()
 }
+
+fn get_frame_buffer() -> Result<ModeInfo> {
+    let gop_handle = boot::get_handle_for_protocol::<GraphicsOutput>()?;
+    let video_buff = boot::open_protocol_exclusive::<GraphicsOutput>(gop_handle)?;
+    Ok(video_buff.current_mode_info())
+}   
 
 #[entry]
 fn main() -> Status {
