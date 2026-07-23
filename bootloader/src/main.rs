@@ -8,7 +8,8 @@ use log::info;
 use uefi::boot::{self, SearchType};
 use uefi::proto::media::file::{File, FileAttribute};
 use uefi::proto::media::file::{FileMode, FileInfo};
-use uefi::proto::console::gop::{GraphicsOutput, ModeInfo};
+use boot_shared::{ BootInfo, VideoBuffer, PixelFormat };
+use uefi::proto::console::gop::{self, FrameBuffer, GraphicsOutput, ModeInfo};
 use uefi::runtime::{self};
 use uefi::{cstr16, proto};
 use uefi::prelude::*;
@@ -19,6 +20,8 @@ use uefi::proto::loaded_image::{LoadedImage};
 use uefi::{Identify, Result};
 
 use xmas_elf::program::Type;
+
+static mut BOOT_INFO: Option<BootInfo> = None;
 
 fn print_image_path() -> Result {
     let loaded_image = 
@@ -141,18 +144,32 @@ fn load_kernel_on_memory() -> Result<u64> {
     Ok(elf.header.pt2.entry_point())
 }
 
-fn jmp_in_kernel(addr_ptr: *const ()) {
-    let kernel_main: extern "sysv64" fn() -> ! = unsafe {
+fn jmp_in_kernel(addr_ptr: *const (), boot_info: *const BootInfo) {
+    let kernel_main: extern "sysv64" fn(boot_info: *const BootInfo) -> ! = unsafe {
         transmute(addr_ptr)
     };
-    kernel_main()
+    kernel_main(boot_info)
 }
 
-fn get_frame_buffer() -> Result<ModeInfo> {
-    let gop_handle = boot::get_handle_for_protocol::<GraphicsOutput>()?;
-    let video_buff = boot::open_protocol_exclusive::<GraphicsOutput>(gop_handle)?;
-    Ok(video_buff.current_mode_info())
-}   
+fn prepare_video_buffer() -> Result<VideoBuffer> {
+    
+    let graphic_hander = boot::get_handle_for_protocol::<GraphicsOutput>()?;
+    let mut graphics_output_proto = boot::open_protocol_exclusive::<GraphicsOutput>(graphic_hander)?;
+
+    let mode_info = graphics_output_proto.current_mode_info();
+    let mut framebuffer = graphics_output_proto.frame_buffer();
+
+    let video_buff =  VideoBuffer {
+        addr: framebuffer.as_mut_ptr() as u64,
+        size: framebuffer.size() as u64,
+        width: mode_info.resolution().0 as u32,
+        height: mode_info.resolution().1 as u32,
+        stride: mode_info.stride() as u32,
+        pixel_format: PixelFormat::Rgb,
+    };
+    
+    Ok(video_buff)
+}
 
 #[entry]
 fn main() -> Status {
@@ -172,9 +189,24 @@ fn main() -> Status {
 
     boot::stall(Duration::from_secs(8));
 
+    unsafe {
+        BOOT_INFO = Some(
+            BootInfo { 
+                video_buff: prepare_video_buffer().expect("Error with video!"), 
+            }
+        )
+    }
+
+    let boot_info_ptr = unsafe {
+
+        let opt_ptr = core::ptr::addr_of!(BOOT_INFO);
+
+        (*opt_ptr).as_ref().unwrap() as *const BootInfo
+    };
+
     unsafe { let _ = boot::exit_boot_services(None); };
 
-    jmp_in_kernel(entry_point as *const ());   
+    jmp_in_kernel(entry_point as *const (), boot_info_ptr);   
     
     Status::SUCCESS
 }

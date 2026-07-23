@@ -1,0 +1,15 @@
+[2J[01;01H[=3h[2J[01;01HBdsDxe: failed to load Boot0001 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0): Not Found
+BdsDxe: loading Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+[ INFO]: bootloader/src/main.rs@072: Start time: 12:16:42 
+[ INFO]: bootloader/src/main.rs@050: Image path: \EFI\BOOT\BOOTX64.EFI
+[ INFO]: bootloader/src/main.rs@064: Image Size: 140 KiB
+[ INFO]: bootloader/src/main.rs@112: Allocating 4 pages for entire kernel from 0x200000 to 0x204000
+[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x200000, size: 4225 bytes
+[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x201088, size: 5084 bytes
+[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x202468, size: 296 bytes
+[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x203000, size: 4096 bytes
+[ INFO]: bootloader/src/main.rs@183: Kernel is successfully loaded in memory!
+[ INFO]: bootloader/src/main.rs@184: Jumping to entry point: 0x200000
+[ INFO]: bootloader/src/main.rs@188: Goodbye from bootloader!
+AFTER CLI

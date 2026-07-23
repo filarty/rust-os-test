@@ -18,6 +18,8 @@ sync
 echo
 qemu-system-x86_64 -enable-kvm \
     -cpu max \
+    -vga std \
     -drive if=pflash,format=raw,readonly=on,file=OVMF_CODE.fd \
     -drive if=pflash,format=raw,readonly=off,file=OVMF_VARS_rw.fd \
-    -drive format=raw,file=fat:rw:esp
+    -drive format=raw,file=fat:rw:esp \
+    -serial file:serial.log

@@ -1,4 +1,5 @@
 #[repr(C)]
+#[derive(Debug, Clone, Copy)]
 pub enum PixelFormat {
     Rgb = 0,
     Bgr = 1,
@@ -8,6 +9,7 @@ pub enum PixelFormat {
 
 
 #[repr(C)]
+#[derive(Debug, Clone, Copy)]
 pub struct VideoBuffer {
     pub addr: u64,
     pub size: u64,
@@ -19,6 +21,7 @@ pub struct VideoBuffer {
 
 
 #[repr(C)]
+#[derive(Debug, Clone, Copy)]
 pub struct BootInfo {
     pub video_buff: VideoBuffer,
 
