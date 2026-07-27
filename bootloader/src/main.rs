@@ -9,9 +9,9 @@ use uefi::boot::{self, SearchType};
 use uefi::proto::media::file::{File, FileAttribute};
 use uefi::proto::media::file::{FileMode, FileInfo};
 use boot_shared::{ BootInfo, VideoBuffer, PixelFormat };
-use uefi::proto::console::gop::{self, FrameBuffer, GraphicsOutput, ModeInfo};
+use uefi::proto::console::gop::{ GraphicsOutput };
 use uefi::runtime::{self};
-use uefi::{cstr16, proto};
+use uefi::{cstr16};
 use uefi::prelude::*;
 use uefi::proto::device_path::text::{
     AllowShortcuts, DevicePathToText, DisplayOnly, 
