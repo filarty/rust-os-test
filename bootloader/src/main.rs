@@ -2,10 +2,10 @@
 #![no_std]
 
 use core::mem::transmute;
-use core::time::Duration;
 use core::slice;
 use log::info;
-use uefi::boot::{self, SearchType};
+use uefi::boot::{self, MemoryType, SearchType};
+use uefi::mem::memory_map::MemoryMap;
 use uefi::proto::media::file::{File, FileAttribute};
 use uefi::proto::media::file::{FileMode, FileInfo};
 use boot_shared::{ BootInfo, VideoBuffer, PixelFormat };
@@ -18,10 +18,16 @@ use uefi::proto::device_path::text::{
 };
 use uefi::proto::loaded_image::{LoadedImage};
 use uefi::{Identify, Result};
-
+use boot_shared::memory::{MemRegionKind, BootMemRegion, convert_type};
 use xmas_elf::program::Type;
 
 static mut BOOT_INFO: Option<BootInfo> = None;
+static mut REGION_BUFF: [BootMemRegion; 256] = [
+    BootMemRegion {
+        base: 0,
+        length: 0,
+        kind: MemRegionKind::Reserved,
+    }; 256];
 
 fn print_image_path() -> Result {
     let loaded_image = 
@@ -171,6 +177,23 @@ fn prepare_video_buffer() -> Result<VideoBuffer> {
     Ok(video_buff)
 }
 
+fn prepare_memory_map() -> Result<usize> {
+    let memory_map = boot::memory_map(MemoryType::LOADER_DATA).expect("Error with memory map");
+    let mut count = 0usize;
+    for desc in memory_map.entries() {
+        let ln = desc.page_count * 4096;
+        unsafe { REGION_BUFF[count] = BootMemRegion { 
+            base: desc.phys_start, 
+            length: ln, 
+            kind: convert_type(desc.ty)
+        };
+        info!{"Memory for {:#?} in range {}:{} is reserved", desc.ty, desc.phys_start, ln}
+    }
+        count += 1;
+    }
+    Ok(count)
+}
+
 #[entry]
 fn main() -> Status {
     uefi::helpers::init().unwrap();
@@ -182,17 +205,17 @@ fn main() -> Status {
 
     info!("Kernel is successfully loaded in memory!");
     info!("Jumping to entry point: {:#x}", entry_point);
-
-    boot::stall(Duration::from_secs(3));
-
     info!("Goodbye from bootloader!");
 
-    boot::stall(Duration::from_secs(8));
+    let size = prepare_memory_map().expect("Error in prepare mem");
+
 
     unsafe {
         BOOT_INFO = Some(
             BootInfo { 
                 video_buff: prepare_video_buffer().expect("Error with video!"), 
+                memory_map_ptr: core::ptr::addr_of!(REGION_BUFF) as *const BootMemRegion,
+                memory_map_len: size,
             }
         )
     }

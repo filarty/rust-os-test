@@ -1,14 +1,133 @@
 [2J[01;01H[=3h[2J[01;01HBdsDxe: failed to load Boot0001 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0): Not Found
 BdsDxe: loading Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
 BdsDxe: starting Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
-[ INFO]: bootloader/src/main.rs@072: Start time: 8:36:47 
-[ INFO]: bootloader/src/main.rs@050: Image path: \EFI\BOOT\BOOTX64.EFI
-[ INFO]: bootloader/src/main.rs@064: Image Size: 140 KiB
-[ INFO]: bootloader/src/main.rs@112: Allocating 787 pages for entire kernel from 0x200000 to 0x513000
-[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x200000, size: 6671 bytes
-[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x202000, size: 7044 bytes
-[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x203b88, size: 64 bytes
-[ INFO]: bootloader/src/main.rs@130: Loading segment to 0x204000, size: 3204096 bytes
-[ INFO]: bootloader/src/main.rs@183: Kernel is successfully loaded in memory!
-[ INFO]: bootloader/src/main.rs@184: Jumping to entry point: 0x200000
-[ INFO]: bootloader/src/main.rs@188: Goodbye from bootloader!
+[ INFO]: bootloader/src/main.rs@078: Start time: 10:6:0 
+[ INFO]: bootloader/src/main.rs@056: Image path: \EFI\BOOT\BOOTX64.EFI
+[ INFO]: bootloader/src/main.rs@070: Image Size: 160 KiB
+[ INFO]: bootloader/src/main.rs@118: Allocating 789 pages for entire kernel from 0x200000 to 0x515000
+[ INFO]: bootloader/src/main.rs@136: Loading segment to 0x200000, size: 11775 bytes
+[ INFO]: bootloader/src/main.rs@136: Loading segment to 0x203000, size: 8396 bytes
+[ INFO]: bootloader/src/main.rs@136: Loading segment to 0x2050d0, size: 72 bytes
+[ INFO]: bootloader/src/main.rs@136: Loading segment to 0x206000, size: 3204096 bytes
+[ INFO]: bootloader/src/main.rs@206: Kernel is successfully loaded in memory!
+[ INFO]: bootloader/src/main.rs@207: Jumping to entry point: 0x200000
+[ INFO]: bootloader/src/main.rs@208: Goodbye from bootloader!
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 0:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 4096:651264 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 1048576:1048576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for LOADER_DATA in range 2097152:3231744 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 5328896:3059712 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_NON_VOLATILE in range 8388608:32768 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 8421376:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_NON_VOLATILE in range 8433664:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 8437760:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_NON_VOLATILE in range 8454144:983040 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 9437184:12582912 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 22020096:44261376 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 66281472:131072 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 66412544:32985088 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for LOADER_DATA in range 99397632:2666496 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for LOADER_CODE in range 102064128:163840 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 102227968:65536 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for LOADER_DATA in range 102293504:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 102301696:7249920 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 109551616:737280 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 110288896:401408 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 110690304:655360 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 111345664:204800 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 111550464:167936 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 111718400:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 111726592:28672 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 111755264:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 111763456:110592 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 111874048:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 111894528:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 111906816:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 111927296:262144 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112189440:57344 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112246784:61440 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112308224:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112316416:86016 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112402432:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112410624:81920 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112492544:28672 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112521216:102400 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112623616:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112635904:24576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112660480:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112668672:147456 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 112816128:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 112832512:413696 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 113246208:2105344 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115351552:36864 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115388416:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115400704:24576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115425280:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115433472:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115437568:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115441664:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115462144:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115482624:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115490816:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115494912:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115511296:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115515392:167936 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115683328:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115699712:98304 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115798016:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115818496:32768 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115851264:24576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115875840:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115892224:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115908608:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115924992:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115937280:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 115941376:20480 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 115961856:53248 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 116015104:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 116019200:143360 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 116162560:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 116166656:32768 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 116199424:32768 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for RUNTIME_SERVICES_DATA in range 116232192:790528 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 117022720:4194304 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121217024:462848 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121679872:24576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121704448:40960 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121745408:16384 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121761792:90112 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121851904:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121860096:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121872384:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121880576:36864 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121917440:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121921536:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121925632:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121933824:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121937920:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 121942016:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 121954304:49152 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 122003456:57344 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 122060800:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 122068992:4096 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 122073088:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 122085376:49152 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 122134528:8192 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 122142720:36864 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 122179584:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 122191872:12288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 122204160:4603904 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for RUNTIME_SERVICES_DATA in range 126808064:1048576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for RUNTIME_SERVICES_CODE in range 127856640:1048576 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for RESERVED in range 128905216:524288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_RECLAIM in range 129429504:65536 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_NON_VOLATILE in range 129495040:524288 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 130019328:2101248 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for CONVENTIONAL in range 132120576:987136 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 133107712:131072 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 133238784:159744 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_DATA in range 133398528:36864 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for BOOT_SERVICES_CODE in range 133435392:94208 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for RUNTIME_SERVICES_DATA in range 133529600:131072 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for ACPI_NON_VOLATILE in range 133660672:557056 is reserved
+[ INFO]: bootloader/src/main.rs@190: Memory for MMIO in range 4292870144:2097152 is reserved

@@ -1,3 +1,5 @@
+use crate::memory::BootMemRegion;
+
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub enum PixelFormat {
@@ -24,6 +26,7 @@ pub struct VideoBuffer {
 #[derive(Debug, Clone, Copy)]
 pub struct BootInfo {
     pub video_buff: VideoBuffer,
-
+    pub memory_map_ptr: *const BootMemRegion,
+    pub memory_map_len: usize,
 }
 
